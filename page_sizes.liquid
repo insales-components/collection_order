@@ -11,7 +11,8 @@
 {% if input_type == 'select' %}
   <select class="slct slct-page_size js-filter-trigger" name="page_size">
     {% for step in array_steps %}
-      {{ step   | select_option: page_size, step }}
+    {% assign step_num = step | times: 1 %}
+      {{ step   | select_option: paginate_page_size, step_num }}
     {% endfor %}
   </select>
 {% endif %}
